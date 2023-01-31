@@ -10,7 +10,10 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(express.static(path.join(__dirname, 'public')))
+
+// Se define el directorio en donde se encuentra el front para subir la imagen.
+// Puede ser una carpeta 'public' o el archivo index.html puede estar en la raiz.
+app.use(express.static(path.join(__dirname, '.')))
 
 const multer = require('multer')
 const inMemoryStorage = multer.memoryStorage()
